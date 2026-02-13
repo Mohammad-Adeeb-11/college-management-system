@@ -1,0 +1,43 @@
+<%- include("partials/header") %>
+
+<main class="flex-fill">
+  <section class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="detail-card">
+          <div class="notice-date mb-3">
+            <%= new Date(notice.createdAt).toDateString() %>
+          </div>
+
+          <h2 class="fw-bold mb-3"><%= notice.title %></h2>
+
+          <p class="text-muted mb-4">Published by Administration</p>
+
+          <p style="white-space: pre-line"><%= notice.message %></p>
+          
+          <% if (adminId) { %>
+            <div class="mt-4 d-flex gap-2">
+              <a href="/admin/notices/edit/<%= notice._id %>" 
+                class="btn btn-outline-primary">
+                Edit
+              </a>
+
+              <a href="/admin/notices/delete/<%= notice._id %>" 
+                class="btn btn-outline-danger">
+                Delete
+              </a>
+            </div>
+          <% } %>
+
+          <div class="mt-4">
+            <a href="/notices" class="btn btn-outline-dark">
+              ← Back to Notices
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer") %>

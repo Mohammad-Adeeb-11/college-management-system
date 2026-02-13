@@ -1,0 +1,53 @@
+<%- include("partials/header") %>
+
+<main class="flex-fill">
+
+<section class="notice-hero text-white text-center">
+  <div class="container">
+    <h1 class="fw-bold">Latest Notices</h1>
+    <p>Stay updated with important announcements and updates.</p>
+  </div>
+</section>
+
+<section class="container py-5">
+
+  <% if (notices.length === 0) { %>
+    <p class="text-center text-muted">No notices available.</p>
+  <% } %>
+
+  <div class="row g-4">
+
+    <% notices.forEach(notice => { %>
+
+<div class="col-md-6 col-lg-4">
+  <a href="/notices/<%= notice._id %>" class="notice-link">
+    <div class="notice-card-modern">
+
+      <div class="notice-date">
+        <%= new Date(notice.createdAt).toDateString() %>
+      </div>
+
+      <h5 class="mt-3"><%= notice.title %></h5>
+
+      <p>
+        <%= notice.message.length > 120
+            ? notice.message.substring(0, 120) + "..."
+            : notice.message %>
+      </p>
+
+      <span class="notice-read">Read More →</span>
+
+    </div>
+  </a>
+</div>
+
+
+    <% }) %>
+
+  </div>
+
+</section>
+
+</main>
+
+<%- include("partials/footer") %>

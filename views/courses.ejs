@@ -1,0 +1,48 @@
+<%- include("partials/header") %>
+
+<main class="flex-fill">
+
+  <!-- HERO -->
+  <section class="course-hero text-white text-center">
+    <div class="container">
+      <h1>Our Courses</h1>
+      <p>Explore programs designed for career success.</p>
+    </div>
+  </section>
+
+  <!-- COURSE LIST -->
+  <section class="container page-padding">
+    <div class="row g-4">
+
+      <% courses.forEach(course => { %>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="course-card h-100">
+            <div class="course-body">
+              <h4><%= course.name %></h4>
+              <p class="text-muted mb-2">
+               <strong>Category:</strong> <%= course.category %>
+              </p>
+              <p>
+                <%= course.description.length > 120 
+                 ? course.description.substring(0, 120) + "..." 
+                  : course.description %>
+              </p>
+
+            </div>
+            <div class="course-footer">
+              <span class="duration"><%= course.duration %></span>
+              <a href="/courses/<%= course._id %>" class="btn btn-sm btn-dark">
+                 View Details
+              </a>
+
+            </div>
+          </div>
+        </div>
+      <% }) %>
+
+    </div>
+  </section>
+
+</main>
+
+<%- include("partials/footer") %>

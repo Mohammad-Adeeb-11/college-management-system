@@ -1,0 +1,75 @@
+<%- include("partials/header") %>
+
+<main class="flex-fill admin-section">
+
+  <div class="container py-5">
+
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold">Manage Notices</h2>
+
+      <a href="/admin/notices/add" class="btn btn-dark">
+        <i class="bi bi-plus-circle me-1"></i> Add Notice
+      </a>
+    </div>
+
+    <!-- Notices Table -->
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% notices.forEach((notice, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+
+              <td>
+                <a href="/admin/notices/<%= notice._id %>" 
+                  class="admin-notice-link">
+                <strong><%= notice.title %></strong>
+                </a>
+              </td>
+
+              <td>
+                <%= notice.message.length > 60 
+                  ? notice.message.substring(0, 60) + "..." 
+                  : notice.message %>
+              </td>
+
+              <td>
+                <%= notice.createdAt.toDateString() %>
+              </td>
+
+              <td class="text-center align-middle">
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                  
+                  <a href="/admin/notices/edit/<%= notice._id %>"
+                    class="btn btn-sm btn-outline-primary action-btn">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+
+                  <a href="/admin/notices/delete/<%= notice._id %>"
+                    class="btn btn-sm btn-outline-danger action-btn">
+                    <i class="bi bi-trash"></i>
+                  </a>
+
+                </div>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </main>
+
+<%- include("partials/footer") %>

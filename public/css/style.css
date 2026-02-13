@@ -1,0 +1,566 @@
+/* ===============================
+   GLOBAL SETTINGS
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  flex: 1;
+}
+
+section {
+  margin: 0;
+}
+
+.page-padding {
+  padding: 60px 0;
+}
+
+/* ===============================
+   NAVBAR
+================================= */
+
+.navbar {
+  margin: 0;
+  border: 0;
+}
+
+.custom-navbar {
+  background: linear-gradient(90deg, #111, #1c1c1c);
+  padding: 14px 0;
+  transition: all 0.3s ease;
+}
+
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  background: #ffc107;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nav-hover {
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #ffc107;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-link:not(.btn):hover {
+  color: #ffc107 !important;
+}
+
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+/* ===============================
+   FOOTER
+================================= */
+
+.footer-modern {
+  background: linear-gradient(90deg, #0f0f0f, #1a1a1a);
+  color: #eaeaea;
+}
+
+.footer-modern h5 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer-modern p,
+.footer-modern li {
+  color: #cfcfcf;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #dcdcdc;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffc107;
+  padding-left: 4px;
+}
+
+/* ===============================
+   HERO SECTION (HOME)
+================================= */
+
+.hero-bg {
+  position: relative;
+  background: url("/images/college.jpg") center/cover no-repeat;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content h1,
+.hero-content p {
+  animation: fadeUp 1s ease forwards;
+}
+
+/* ===============================
+   FEATURE CARDS
+================================= */
+
+.feature-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  transition: 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   ABOUT PAGE
+================================= */
+
+.about-hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/images/college.jpg") center/cover no-repeat;
+  padding: 100px 0;
+}
+
+.about-hero h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.about-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ===============================
+   COURSES PAGE
+================================= */
+
+.course-hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("/images/college.jpg") center/cover no-repeat;
+  padding: 100px 0;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.course-body p {
+  color: #666;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.duration {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.detail-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   ADMIN FORMS
+================================= */
+
+.admin-section {
+  background: #f5f7fa;
+}
+
+.admin-form-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.admin-form-card {
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.admin-form-card h3 {
+  font-weight: 600;
+}
+
+.admin-form-card .form-control,
+.admin-form-card .form-select {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* ===============================
+   ADMIN DASHBOARD
+================================= */
+
+.admin-dashboard {
+  background: #f5f7fa;
+}
+
+.dashboard-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card h6 {
+  color: #777;
+  font-weight: 500;
+}
+
+.dashboard-card h2 {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.stat-icon {
+  font-size: 40px;
+  opacity: 0.8;
+}
+
+.quick-card {
+  display: block;
+  text-align: center;
+  padding: 25px;
+  background: #111;
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-weight: 500;
+}
+
+.quick-card:hover {
+  background: #ffc107;
+  color: black;
+}
+
+/* ===============================
+   ADMIN TABLES
+================================= */
+
+.table-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.table thead th {
+  font-weight: 600;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* ===============================
+   STUDENT DASHBOARD
+================================= */
+
+.student-dashboard {
+  background: #f5f7fa;
+}
+
+.student-card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.student-card h5 {
+  font-weight: 600;
+}
+
+.student-action {
+  display: block;
+  text-align: center;
+  padding: 25px;
+  background: #111;
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-weight: 500;
+}
+
+.student-action:hover {
+  background: #ffc107;
+  color: black;
+}
+
+/* ===============================
+   PUBLIC NOTICES PAGE
+================================= */
+
+.notice-hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/images/college.jpg") center/cover no-repeat;
+  padding: 100px 0;
+}
+
+.notice-card-modern {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  height: 100%;
+}
+
+.notice-card-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.notice-date {
+  font-size: 0.85rem;
+  color: #777;
+  background: #f5f7fa;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.notice-read {
+  text-decoration: none;
+  font-weight: 500;
+  color: #111;
+  transition: 0.3s ease;
+}
+
+.notice-read:hover {
+  color: #ffc107;
+}
+
+/* ===============================
+   HOME PAGE
+================================= */
+
+.home-hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/images/college.jpg") center/cover no-repeat;
+  padding: 140px 0;
+}
+
+.home-stats {
+  background: linear-gradient(90deg, #111, #1c1c1c);
+}
+
+.home-stats h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.home-cta {
+  background: linear-gradient(90deg, #111, #000);
+}
+
+/* ===============================
+   LOGIN PAGE
+================================= */
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.notice-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.admin-notice-link {
+  text-decoration: none;
+  color: #111;
+}
+
+.admin-notice-link:hover {
+  color: #ffc107;
+}
+
+/* Fix login button hover */
+.btn-outline-warning {
+  border: 1px solid #ffc107;
+  color: #ffc107;
+  transition: 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+  background-color: #ffc107;
+  color: #000 !important;
+}
+
+@media (max-width: 768px) {
+  .page-padding {
+    padding: 20px;
+  }
+
+  .admin-form-section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+
+.action-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}

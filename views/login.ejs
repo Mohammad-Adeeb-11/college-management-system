@@ -1,0 +1,108 @@
+<%- include("partials/header") %>
+
+<main class="flex-fill">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-12">
+        <div class="login-card">
+          <!-- Toggle Buttons -->
+          <div class="text-center mb-4">
+            <button id="studentBtn" class="btn btn-dark me-2">
+              Student Login
+            </button>
+
+            <button id="adminBtn" class="btn btn-outline-dark">
+              Admin Login
+            </button>
+          </div>
+
+          <!-- STUDENT LOGIN FORM -->
+          <form id="studentForm" action="/login" method="POST">
+            <h4 class="text-center mb-3">Student Login</h4>
+
+            <input
+              type="email"
+              name="email"
+              class="form-control mb-3"
+              placeholder="Student Email"
+              required
+            />
+
+            <input
+              type="password"
+              name="password"
+              class="form-control mb-3"
+              placeholder="Password"
+              required
+            />
+
+            <button class="btn btn-dark w-100">Login</button>
+            <p class="text-center mt-3">
+              Don't have an account?
+              <a href="/register">Register here</a>
+            </p>
+          </form>
+
+          <!-- ADMIN LOGIN FORM -->
+          <form
+            id="adminForm"
+            action="/admin/login"
+            method="POST"
+            style="display: none"
+          >
+            <h4 class="text-center mb-3">Admin Login</h4>
+
+            <input
+              type="email"
+              name="email"
+              class="form-control mb-3"
+              placeholder="Admin Email"
+              required
+            />
+
+            <input
+              type="password"
+              name="password"
+              class="form-control mb-3"
+              placeholder="Password"
+              required
+            />
+
+            <button class="btn btn-dark w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const studentBtn = document.getElementById("studentBtn");
+  const adminBtn = document.getElementById("adminBtn");
+  const studentForm = document.getElementById("studentForm");
+  const adminForm = document.getElementById("adminForm");
+
+  studentBtn.addEventListener("click", () => {
+    studentForm.style.display = "block";
+    adminForm.style.display = "none";
+
+    studentBtn.classList.remove("btn-outline-dark");
+    studentBtn.classList.add("btn-dark");
+
+    adminBtn.classList.remove("btn-dark");
+    adminBtn.classList.add("btn-outline-dark");
+  });
+
+  adminBtn.addEventListener("click", () => {
+    studentForm.style.display = "none";
+    adminForm.style.display = "block";
+
+    adminBtn.classList.remove("btn-outline-dark");
+    adminBtn.classList.add("btn-dark");
+
+    studentBtn.classList.remove("btn-dark");
+    studentBtn.classList.add("btn-outline-dark");
+  });
+</script>
+
+<%- include("partials/footer") %>

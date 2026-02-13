@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+<main class="flex-fill">
+  <!-- HERO -->
+  <section class="course-hero text-white text-center">
+    <div class="container">
+      <h1><%= course.name %></h1>
+      <p><%= course.duration %></p>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="container page-padding">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="detail-card">
+          <h3>Course Description</h3>
+          <p><%= course.description %></p>
+
+          <div class="mt-4">
+            <a href="/courses" class="btn btn-outline-dark">
+              Back to Courses
+            </a>
+
+            <a href="#" class="btn btn-dark ms-2"> Enroll Now </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include("partials/footer") %>
